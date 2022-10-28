@@ -261,13 +261,14 @@
 <li>RLT does not account for the pipelining of instructions</li>
 <li>Fetching an instruction in RTL:</li>
 </ul>
-<table><thead><tr><th>RLT</th><th>Meaning</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>RLT</th><th>Meaning</th></tr></thead><tbody>
 <tr><td><code>[MAR] &lt;- [PC]</code></td><td>Move contents of PC to MAR</td></tr>
 <tr><td><code>[PC] &lt;- [PC] + 1</code></td><td>Increment PC</td></tr>
 <tr><td><code>[MBR] &lt;- [MS([MAR])]</code></td><td>Read address from MAR into MBR.</td></tr>
 <tr><td><code>[IR] &lt;- [MBR]</code> -</td><td>Load instruction into I</td></tr>
 <tr><td><code>CU &lt;- [IR(opcode)]</code></td><td>Decode the instruction</td></tr>
 </tbody></table>
+</div>
 <h2 id="assembly-language"><a class="header" href="#assembly-language">Assembly Language</a></h2>
 <ul>
 <li>Assembly is the lowest possible form of code</li>

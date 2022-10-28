@@ -149,12 +149,13 @@
 </ul>
 <h3 id="binary-adder"><a class="header" href="#binary-adder">Binary Adder</a></h3>
 <p>A half adder takes two 1-bit inputs and generates a sum and a carry out:</p>
-<table><thead><tr><th>A</th><th>B</th><th>sum</th><th>carry</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>A</th><th>B</th><th>sum</th><th>carry</th></tr></thead><tbody>
 <tr><td>0</td><td>0</td><td>0</td><td>0</td></tr>
 <tr><td>0</td><td>1</td><td>1</td><td>0</td></tr>
 <tr><td>1</td><td>0</td><td>1</td><td>0</td></tr>
 <tr><td>1</td><td>1</td><td>0</td><td>1</td></tr>
 </tbody></table>
+</div>
 <p>Can see there are two gates in this design:</p>
 <ul>
 <li>Sum is an XOR</li>
@@ -171,7 +172,7 @@ endmodule;
 </code></pre>
 <h3 id="full-adder"><a class="header" href="#full-adder">Full Adder</a></h3>
 <p>A full adder is similar but accepts a carry in to chain carries out</p>
-<table><thead><tr><th>Cin</th><th>A</th><th>B</th><th>Cout</th><th>Sum</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Cin</th><th>A</th><th>B</th><th>Cout</th><th>Sum</th></tr></thead><tbody>
 <tr><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
 <tr><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
 <tr><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
@@ -181,6 +182,7 @@ endmodule;
 <tr><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td></tr>
 <tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
 </tbody></table>
+</div>
 <p>Can see that this is made using half adders:</p>
 <p><img src="./img/fulladd.png" alt="" /></p>
 <p>Structural verilog allows for building modules from other modules to create a hierarchy. Can instantiate our half adder module twice to reuse it in our full adder module to create a hierarchical design.</p>
@@ -219,7 +221,7 @@ endmodule;
 <pre><code class="language-verilog">assign result = a &amp; b;
 </code></pre>
 <p>This is called a <strong>continuous assignment</strong>: it allows us to assign the result of a boolean expression to a signal. there is a range of bitwise operators:</p>
-<table><thead><tr><th>Operator</th><th>Function</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Operator</th><th>Function</th></tr></thead><tbody>
 <tr><td><code>&amp;</code></td><td><code>AND</code></td></tr>
 <tr><td><code>\|</code></td><td><code>OR</code></td></tr>
 <tr><td><code>~</code></td><td><code>NOT</code></td></tr>
@@ -227,6 +229,7 @@ endmodule;
 <tr><td><code>~&amp;</code></td><td><code>NAND</code></td></tr>
 <tr><td><code>~\| </code></td><td><code>NOR</code></td></tr>
 </tbody></table>
+</div>
 <p>Here is the full adder from earlier using assign statements instead of gates. There is no need to describe the structure in terms of gates, only logic functions. As with gate instances, the order of assign statements is irrelevant.</p>
 <pre><code class="language-verilog">module full_add(input a, b, Cin,
                 output sum, Cout);

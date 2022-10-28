@@ -170,7 +170,7 @@
 <p>The diagram below shows the same FSM, but it will only output the three-cycle pulse when an input signal <code>b</code> is set high. The output of each state is also shown in the circle next to the state: state/output. It is important to label diagrams with a proper legend to make it clear what means what.</p>
 <p><img src="./img/fsm-5.png" alt="" /></p>
 <p>State transition information can also be presented in tables, which is effectively a truth table for the next state based on the current state</p>
-<table><thead><tr><th>Current state</th><th>Input <code>b</code></th><th>Next state</th><th>Output <code>x</code></th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Current state</th><th>Input <code>b</code></th><th>Next state</th><th>Output <code>x</code></th></tr></thead><tbody>
 <tr><td>off</td><td>0</td><td>off</td><td>0</td></tr>
 <tr><td>off</td><td>1</td><td>on1</td><td>0</td></tr>
 <tr><td>on1</td><td>0</td><td>on2</td><td>1</td></tr>
@@ -180,6 +180,7 @@
 <tr><td>on3</td><td>0</td><td>off</td><td>1</td></tr>
 <tr><td>on3</td><td>1</td><td>off</td><td>1</td></tr>
 </tbody></table>
+</div>
 <p>Can see that the state only transitions from off to on1 when input <code>b</code> is asserted.</p>
 <h2 id="implementing-fsm"><a class="header" href="#implementing-fsm">Implementing FSM</a></h2>
 <p>Using a state table, you can build the combinational circuit that determines the next state from the current state. Connected with a register holding state, this forms the structure of a finite state machine.</p>
@@ -233,7 +234,7 @@
 </li>
 </ul>
 <p>Consider the state transition logic for the example with the three-cycle pulse:</p>
-<table><thead><tr><th>Current state: <code>s[1:0]</code></th><th>Input <code>b</code></th><th>Next state: <code>ns[1:0]</code></th><th>Output <code>x</code></th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Current state: <code>s[1:0]</code></th><th>Input <code>b</code></th><th>Next state: <code>ns[1:0]</code></th><th>Output <code>x</code></th></tr></thead><tbody>
 <tr><td>00</td><td>0</td><td>00</td><td>0</td></tr>
 <tr><td>00</td><td>1</td><td>01</td><td>0</td></tr>
 <tr><td>01</td><td>0</td><td>10</td><td>1</td></tr>
@@ -243,6 +244,7 @@
 <tr><td>11</td><td>0</td><td>00</td><td>1</td></tr>
 <tr><td>11</td><td>1</td><td>00</td><td>1</td></tr>
 </tbody></table>
+</div>
 <p>This is now a binary truth table, from which we can determine equations for each output bit, mapping <code>s</code> to <code>ns</code>.</p>
 <ul>
 <li><code>ns[1] = s[1] &amp; !s[0] | !s[1] &amp; s[0]</code></li>

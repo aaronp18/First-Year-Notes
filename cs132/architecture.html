@@ -150,7 +150,7 @@
 <p>The Pedagogically Advanced Teaching Processor is a very simple microprocessor. The specifics of it are <strong>not examinable</strong>, but it is used to build an understanding of microprocessor architecture.</p>
 <h3 id="programmers-model"><a class="header" href="#programmers-model">Programmer's model</a></h3>
 <p>The PATP has 8 instructions. Each instruction is 1 8-bit word, with the first 3 bits as the opcode and last 5 as the operand, if applicable.</p>
-<table><thead><tr><th>Opcode</th><th>Mnemonic</th><th>Macro Operation</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Opcode</th><th>Mnemonic</th><th>Macro Operation</th><th>Description</th></tr></thead><tbody>
 <tr><td>000</td><td><code>CLEAR</code></td><td><code>[D0] &lt;- 0</code></td><td>Set D0 to 0 (and set <code>Z</code>)</td></tr>
 <tr><td>001</td><td><code>INC</code></td><td><code>[D0] &lt;- [D0] + 1</code></td><td>Increment the value in D0 (and set <code>Z</code> if result is 0)</td></tr>
 <tr><td>010</td><td><code>ADD #v</code></td><td><code>[D0] &lt;- [D0] + v</code></td><td>Add the literal v to D0 (and set <code>Z</code> if result is 0)</td></tr>
@@ -160,6 +160,7 @@
 <tr><td>110</td><td><code>LOAD loc</code></td><td><code>[DO] &lt;- [MS(loc)]</code></td><td>Load the 8 bit value from address location <code>loc</code> to D0</td></tr>
 <tr><td>111</td><td><code>STORE loc</code></td><td><code>[MS(loc)] &lt;- [D0]</code></td><td>Write the 8 bit value from D0 to address location <code>loc</code></td></tr>
 </tbody></table>
+</div>
 <p>This is not many instructions, but it is technically Turing-complete. The other specs of the PATP are:</p>
 <ul>
 <li>An address space of 32 bytes (the maximum address is <code>11111</code>)</li>
@@ -303,7 +304,7 @@
 <li>MS timings assume that if MAR is loaded during one cycle, then R, W and EMS can be used in the next cycle</li>
 </ul>
 <p>The diagram below shows the timing for a fetch taking 4 cycles, and which components are signalled when. Notice which things happen in the same cycle, and which must happen sequentially.</p>
-<table><thead><tr><th>cycle</th><th>Micro-Op</th><th>Control Signals</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>cycle</th><th>Micro-Op</th><th>Control Signals</th></tr></thead><tbody>
 <tr><td>1</td><td><code>[MAR] &lt;- [PC]</code></td><td>Enable PC, Clock MAR</td></tr>
 <tr><td>2</td><td><code>[IR] &lt;- [MS(MAR)]</code></td><td>Set read for MAR, Enable MS, Clock IR</td></tr>
 <tr><td>3</td><td><code>[ALU(Q)] &lt;- [PC]</code></td><td>Enable PC</td></tr>
@@ -311,6 +312,7 @@
 <tr><td>3</td><td><code>[ALUreg] &lt;- [ALU]</code></td><td>Clock ALUreg</td></tr>
 <tr><td>4</td><td><code>[PC] &lt;- [ALUreg]</code></td><td>Enable ALUreg, Clock PC</td></tr>
 </tbody></table>
+</div>
 <p><img src="./img/timings.png" alt="" /></p>
 <h2 id="control-unit-design"><a class="header" href="#control-unit-design">Control Unit Design</a></h2>
 <p>The task of the control unit is to coordinate the actions of the CPU, namely the Fetch-Decode-Execute cycle. It generates the fetch control sequence, takes opcode input, and generates the right control sequence based on this. It can be designed to do this in one of two ways:</p>

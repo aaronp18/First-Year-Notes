@@ -178,11 +178,12 @@ xor :: Bool -&gt; (Bool -&gt; Bool)
 xor = xor = \a -&gt; (\b -&gt; (a || b) &amp;&amp; not (a &amp;&amp; b))
 </code></pre>
 <p>The table below shows how functions application and types associate:</p>
-<table><thead><tr><th>Without Parentheses</th><th>With Parentheses</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Without Parentheses</th><th>With Parentheses</th></tr></thead><tbody>
 <tr><td><code>f x y </code></td><td><code>(f x) y</code></td></tr>
 <tr><td><code>\x -&gt; \y -&gt; ...</code></td><td><code>\x -&gt; (\y -&gt; ...)</code></td></tr>
 <tr><td><code>Int -&gt; Int -&gt; Int</code></td><td><code>Int -&gt; (Int -&gt; Int)</code></td></tr>
 </tbody></table>
+</div>
 <h2 id="functions-as-arguments-map"><a class="header" href="#functions-as-arguments-map">Functions as Arguments (<code>map</code>)</a></h2>
 <p>Haskell functions can be taken as arguments to other functions. Functions that take/return functions are called higher order functions. An example, increasing every element of a list by one:</p>
 <pre><code class="language-haskell">incByOne :: [Int] -&gt; [Int]

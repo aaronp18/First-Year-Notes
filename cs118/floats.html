@@ -148,10 +148,11 @@
 <li>A biased exponent</li>
 <li>A normalised mantissa</li>
 </ul>
-<table><thead><tr><th>Type</th><th>Sign</th><th>Exponent</th><th>Mantissa</th><th>Bias</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Type</th><th>Sign</th><th>Exponent</th><th>Mantissa</th><th>Bias</th></tr></thead><tbody>
 <tr><td>Single Precision (32 bit)</td><td>1 (bit 31)</td><td>8 (bit 30 - 23)</td><td>23 (bit 22- 0)</td><td>127</td></tr>
 <tr><td>Double Precision (64 bit)</td><td>1 (bit 63)</td><td>11 (bit 62 - 52)</td><td>52 (51 - 0)</td><td>1023</td></tr>
 </tbody></table>
+</div>
 <p>The examples below all refer to 32 bit numbers, but the principles apply to 64 bit.</p>
 <ul>
 <li>The exponent is an 8 bit unsigned number in biased form
@@ -174,15 +175,17 @@
 <li>Fraction part <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">0.375</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">0.011</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></li>
 </ul>
 <p>Combining the two parts yields <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1100.011</span></span></span></span>. However, the standard requires that the mantissa have an implicit 1, so it must be shifted to the right until the number is normalised (ie has only 1 as an integer part). This yields <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1.100011</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>. As this has been shifted, it is actually <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1.100011</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span></span></span></span>. The three <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">10</span><span class="mclose">)</span></span></span></span> is therefore the exponent, but this has to be normalised (+127) to yield 130 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">10000010</span><span class="mclose">)</span></span></span></span>. The number is positive (sign bit zero) so this yields:</p>
-<table><thead><tr><th>Sign</th><th>Biased Exponent</th><th>Normalised Mantissa</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Sign</th><th>Biased Exponent</th><th>Normalised Mantissa</th></tr></thead><tbody>
 <tr><td>0</td><td>1000 0010</td><td>100011</td></tr>
 </tbody></table>
+</div>
 <p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">01000001010001100000000000000000</span></span></span></span></span></p>
 <h2 id="float-to-decimal"><a class="header" href="#float-to-decimal">Float to Decimal</a></h2>
 <p>Starting with the value 0x41C80000 = 01000001110010000000000000000000:</p>
-<table><thead><tr><th>Sign</th><th>Biased Exponent</th><th>Normalised Mantissa</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Sign</th><th>Biased Exponent</th><th>Normalised Mantissa</th></tr></thead><tbody>
 <tr><td>0</td><td>1000 0011</td><td>1001</td></tr>
 </tbody></table>
+</div>
 <ul>
 <li>The exponent is 131, biasing (-127) gives 4</li>
 <li>The mantissa is 0.5625, adding 1 (normalising) gives 1.5625</li>
@@ -215,13 +218,13 @@
 </ul>
 </li>
 </ul>
-<table><thead><tr><th>Exponent</th><th>Mantissa</th><th>Value</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Exponent</th><th>Mantissa</th><th>Value</th></tr></thead><tbody>
 <tr><td>0</td><td>0</td><td><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">±</span><span class="mord">0</span></span></span></span></td></tr>
 <tr><td>255</td><td>0</td><td><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">±</span><span class="mord">∞</span></span></span></span></td></tr>
 <tr><td>0</td><td>not 0</td><td>denormalised</td></tr>
 <tr><td>255</td><td>not 0</td><td>NaN</td></tr>
 </tbody></table>
-
+</div>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
